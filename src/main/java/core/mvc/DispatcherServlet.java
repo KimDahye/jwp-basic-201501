@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@WebServlet(name="dispatcher", urlPatterns="*.next")
+@WebServlet(name="dispatcher", urlPatterns="*.next", loadOnStartup=1)
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -20,6 +20,7 @@ public class DispatcherServlet extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
+		System.out.println("hello!");
 		rm = new RequestMapping();
 		rm.initMapping();
 	}
