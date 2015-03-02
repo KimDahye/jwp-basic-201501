@@ -5,9 +5,7 @@
 	version="3.0">
 	<display-name>Web Application</display-name>
 	
-	<!-- 
-	어노테이션으로 설정을 변경하면서 주석처리함.
-	<listener>
+<!-- 	<listener>
 		<listener-class>next.support.init.ContextLoaderListender</listener-class>
 	</listener>
 	
@@ -21,9 +19,14 @@
 		<servlet-name>DispatcherServlet</servlet-name>
 		<url-pattern>*.next</url-pattern>
 	</servlet-mapping>
-	-->
+ -->
 	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
+	
+	<listener>
+		<listener-class>next.support.context.ContextLoaderListener</listener-class>
+	</listener>
 </web-app>
