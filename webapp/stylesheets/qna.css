@@ -240,6 +240,23 @@ h3 span {
     -moz-border-radius: 10px;
 }
 
+.comment .comment-deletion {
+	float:right;
+	width: 50px;
+	height: 25px;
+	line-height: 27px;
+	text-align: center;
+	background-color: #fff;
+	margin-bottom: 20px;
+	display:block;
+	border-radius: 4px;
+}
+
+.comment .comment-deletion a{
+	text-decoration:none;
+	color: #242C58;
+}
+
 .comment .about {
     text-indent: -999em;
     display: block;
