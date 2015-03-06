@@ -64,8 +64,8 @@
 	                <div class="about">내용 : </div>
 	                ${answer.contents}
 	            </div>
-	            <div>
-	            	<a href="#">삭제</a>
+	            <div class="comment-deletion">
+	            	<a href="#" data-answerid ="${answer.answerId}" data-questionid="${answer.questionId}">삭제</a>
 	            </div>
 	        </div>	    
 	        

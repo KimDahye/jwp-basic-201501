@@ -19,6 +19,28 @@ function writeAnswers(e) {
 			 location.reload(true);
 		 }
 	 }
+	 request.send(params);
+}
+
+var deleteButtons = document.querySelectorAll('.comment-deletion a');
+for ( var j=0 ; j < deleteButtons.length ; j++) {
+	deleteButtons[j].addEventListener('click', deleteAnswer, false);
+}
+
+function deleteAnswer(e) {
+	 e.preventDefault();
 	 
+	 var url = "/api/deleteAnswer.next";
+	 var params = "answerId=" + e.currentTarget.dataset.answerid + "&questionId=" + e.currentTarget.dataset.questionid;
+
+	 var request = new XMLHttpRequest();
+	 request.open("POST", url, true);
+	 request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	 
+	 request.onreadystatechange = function() {
+		 if(request.readyState == 4 && request.status == 200) {
+			 location.reload(true);
+		 }
+	 }
 	 request.send(params);
 }

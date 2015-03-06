@@ -5,24 +5,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import next.dao.AnswerDao;
 import next.dao.QuestionDao;
-import next.model.Answer;
 import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
 
-public class AddAnswerController extends AbstractController {
+public class DeleteAnswerController extends AbstractController {
 	private QuestionDao questionDao = new QuestionDao();
 	private AnswerDao answerDao = new AnswerDao();
 	
-	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		
-		String writer = request.getParameter("writer");
-		String contents = request.getParameter("contents");
+		long answerId  = Integer.parseInt(request.getParameter("answerId"));
 		long questionId = Integer.parseInt(request.getParameter("questionId"));
 
-		answerDao.insert(new Answer(writer, contents, questionId));
-		questionDao.increaseCountOfCommentById(questionId);
+		answerDao.deleteById(answerId);
+		questionDao.decreaseCountOfCommentById(questionId);
 		
 		ModelAndView mav = jstlView("redirect:/show.next?questionId="+questionId); // 여기는 돌아가게 하기 위해 넣은 것 사실 jsonView()를 넣어도 상관 없다.
 
