@@ -12,7 +12,6 @@ import core.mvc.ModelAndView;
 
 public class SaveController extends AbstractController{
 	private QuestionDao questionDao = new QuestionDao();
-	private List<Question> questions;
 	
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
@@ -21,11 +20,8 @@ public class SaveController extends AbstractController{
 		String title = request.getParameter("title");
 		String contents = request.getParameter("contents");
 		questionDao.insert(new Question(writer, title, contents));
-
-		questions = questionDao.findAll();		
-		ModelAndView mav = jstlView("list.jsp");
-		mav.addObject("questions", questions);
 		
+		ModelAndView mav = jstlView("redirect:/list.next");
 		return mav;
 	}
 }
