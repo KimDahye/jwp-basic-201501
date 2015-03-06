@@ -22,16 +22,14 @@ public class ShowController extends AbstractController {
 	
 	private QuestionDao questionDao = new QuestionDao();
 	private AnswerDao answerDao = new AnswerDao();
-	private Question question;
-	private List<Answer> answers;
 	
 	@Override
 	public ModelAndView execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		long questionId = ServletRequestUtils.getRequiredLongParameter(request, "questionId");
 		logger.debug("questionId : {}", questionId);
-		question = questionDao.findById(questionId);
-		answers = answerDao.findAllByQuestionId(questionId);
+		Question question = questionDao.findById(questionId);
+		List<Answer> answers = answerDao.findAllByQuestionId(questionId);
 		ModelAndView mav = jstlView("show.jsp");
 		mav.addObject("question", question);
 		mav.addObject("answers", answers);
