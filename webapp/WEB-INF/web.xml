@@ -26,8 +26,17 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	
-	
 	<listener>
 		<listener-class>next.support.context.ContextLoaderListener</listener-class>
 	</listener>
+	
+	<filter>
+        <filter-name>Encoding Filter</filter-name>
+        <filter-class>core.web.filter.CharacterEncodingFilter</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>Encoding Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
