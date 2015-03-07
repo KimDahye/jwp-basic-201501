@@ -9,8 +9,8 @@ import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
 
 public class DeleteAnswerController extends AbstractController {
-	private QuestionDao questionDao = new QuestionDao();
-	private AnswerDao answerDao = new AnswerDao();
+	private QuestionDao questionDao = QuestionDao.getInstance();
+	private AnswerDao answerDao = AnswerDao.getInstance();
 	
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {

@@ -9,7 +9,7 @@ import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
 
 public class SaveController extends AbstractController{
-	private QuestionDao questionDao = new QuestionDao();
+	private QuestionDao questionDao = QuestionDao.getInstance();
 	
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)

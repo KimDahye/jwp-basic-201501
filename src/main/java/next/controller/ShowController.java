@@ -20,8 +20,8 @@ import core.utils.ServletRequestUtils;
 public class ShowController extends AbstractController {
 	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
 	
-	private QuestionDao questionDao = new QuestionDao();
-	private AnswerDao answerDao = new AnswerDao();
+	private QuestionDao questionDao = QuestionDao.getInstance();
+	private AnswerDao answerDao = AnswerDao.getInstance();
 	
 	@Override
 	public ModelAndView execute(HttpServletRequest request,
